@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="si">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O/L 2026 Study Quest</title>
+<link rel="stylesheet" href="assets/game.css">
+<style>
+  .hero { padding: 34px 0 8px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px; align-items: stretch; }
+  @media (max-width: 820px) { .hero { grid-template-columns: 1fr; } }
+  .hero h1 { margin-bottom: .2em; }
+  .next-exam { background: var(--ink); color: var(--paper); border-radius: 22px; border: 2.5px solid var(--line); box-shadow: var(--shadow); padding: 22px; position: relative; overflow: hidden; }
+  .next-exam .big { font-family: var(--f-game); font-weight: 700; font-size: clamp(3.4rem, 11vw, 5.6rem); line-height: 1; color: var(--sun); }
+  .next-exam .unit { font-family: var(--f-head); font-size: 1.2rem; }
+  .next-exam .subj { font-family: var(--f-head); font-weight: 700; font-size: 1.5rem; margin-top: 10px; }
+  .next-exam .when { opacity: .8; }
+  .pcard { display: flex; flex-direction: column; justify-content: space-between; }
+  .pcard .lvl-big { font-family: var(--f-game); font-weight: 700; font-size: 3rem; line-height: 1; }
+  .pcard .lvlbar { height: 16px; border: 2.5px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--sky-2); margin: 8px 0; }
+  .pcard .lvlbar i { display: block; height: 100%; background: var(--leaf); width: 0; transition: width .6s ease; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; text-align: center; }
+  .stats div { border: 2px solid var(--line); border-radius: 14px; padding: 6px; background: var(--sky); }
+  .stats b { display: block; font-family: var(--f-game); font-size: 1.5rem; }
+  .stats span { font-size: .8rem; }
+
+  /* island map */
+  .map { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 18px 0 34px; counter-reset: isl; }
+  @media (max-width: 820px) { .map { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .map { grid-template-columns: 1fr; } }
+  .island {
+    position: relative; text-decoration: none; color: var(--ink); background: var(--paper);
+    border: 2.5px solid var(--line); border-radius: 26px 26px 26px 8px; box-shadow: var(--shadow); padding: 16px;
+    display: grid; grid-template-columns: 58px 1fr; gap: 12px; align-items: center;
+    transition: transform .1s ease, box-shadow .1s ease;
+  }
+  .island:hover { transform: translate(-2px, -2px) rotate(-.4deg); box-shadow: 6px 6px 0 var(--line); }
+  .island .ic { width: 58px; height: 58px; border-radius: 18px; border: 2.5px solid var(--line); display: grid; place-items: center; font-size: 1.8rem; font-family: var(--f-head); font-weight: 700; color: #fff; }
+  .island h3 { margin: 0; font-size: 1.08rem; }
+  .island .d { font-family: var(--f-game); font-weight: 600; font-size: .85rem; color: var(--ink-soft); }
+  .island .bar { height: 9px; border: 2px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--sky-2); margin-top: 6px; }
+  .island .bar i { display: block; height: 100%; width: 0; }
+  .island .pct { font-family: var(--f-game); font-size: .8rem; font-weight: 600; }
+  .island .flag { position: absolute; top: -12px; right: 14px; font-family: var(--f-game); font-weight: 700; font-size: .8rem; background: var(--sun); color: #1E2350; border: 2px solid var(--line); border-radius: 999px; padding: 1px 10px; }
+  .island.locked { opacity: .62; }
+  .island.locked .flag { background: var(--paper); color: var(--ink); }
+  .island.past { filter: grayscale(.7); }
+
+  /* timetable */
+  .tt td:first-child { font-family: var(--f-game); font-weight: 700; white-space: nowrap; }
+  .tt tr.today td { background: #FFF4CC; color: #1E2350; }
+  .tt .sbj { display: inline-flex; gap: 6px; align-items: center; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--line); display: inline-block; flex: none; }
+
+  /* plan */
+  .plan { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .day { border: 2px solid var(--line); border-radius: 14px; padding: 8px 10px; background: var(--paper); font-size: .88rem; line-height: 1.5; }
+  .day .dt { font-family: var(--f-game); font-weight: 700; font-size: .95rem; }
+  .day.today { background: var(--sun); color: #1E2350; box-shadow: var(--shadow-sm); transform: scale(1.03); }
+  .day.exam { background: var(--ink); color: var(--paper); }
+  .day.gone { opacity: .45; }
+  .day ul { margin: 4px 0 0; padding-left: 1.1em; }
+
+  .today-card { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; }
+  @media (max-width: 640px) { .today-card { grid-template-columns: 1fr; } }
+  .timer { text-align: center; }
+  .timer .t { font-family: var(--f-game); font-weight: 700; font-size: 3rem; line-height: 1.1; }
+
+  .badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+  .bdg { text-align: center; border: 2px solid var(--line); border-radius: 16px; padding: 12px 8px; background: var(--paper); }
+  .bdg .i { font-size: 2rem; }
+  .bdg b { display: block; font-family: var(--f-head); }
+  .bdg small { color: var(--ink-soft); }
+  .bdg.off { opacity: .4; filter: grayscale(1); }
+  .rules li { margin-bottom: .4em; }
+</style>
+</head>
+<body data-root="./">
+
+<main class="wrap">
+
+  <section class="hero" aria-label="ආරම්භය">
+    <div class="card pcard" style="margin:0">
+      <div>
+        <h1>O/L 2026 Study Quest 🗺️</h1>
+        <p>විෂය 9ම දූපත් 9ක්. හැම දූපතකම මට්ටම් තියෙනවා — පාඩම, මතක උපක්‍රම, පසුගිය ප්‍රශ්න, ඉලක්ක ප්‍රශ්න, Boss Quiz. පාඩම් කරන හැම පියවරකටම XP ලැබෙනවා. Level up වෙලා A-Pass රැජින වෙමු! 👑</p>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:end;gap:12px">
+          <div><span class="muted">ඔයාගේ Level</span><div class="lvl-big"><span data-bind="level">1</span></div><b data-bind="title"></b></div>
+          <div style="text-align:right" class="muted">ඊළඟ level එකට<br><b class="en" data-bind="toNext">60</b> XP</div>
+        </div>
+        <div class="lvlbar"><i data-bind="lvlPct"></i></div>
+        <div class="stats">
+          <div><b data-bind="xp">0</b><span>මුළු XP</span></div>
+          <div><b>🔥<span data-bind="streak">0</span></b><span>දින streak</span></div>
+          <div><b id="badgeCount">0</b><span>පදක්කම්</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="next-exam" id="nextExam" aria-live="polite"></div>
+  </section>
+
+  <section aria-labelledby="todayH">
+    <div class="card tint today-card">
+      <div>
+        <h2 id="todayH">අද කරන්න ඕනේ 🎯</h2>
+        <div id="todayPlan"></div>
+      </div>
+      <div class="timer card" style="margin:0;min-width:220px">
+        <div class="muted">⏱️ Focus timer</div>
+        <div class="t" id="timerT">25:00</div>
+        <p style="margin:.3em 0" class="muted" id="timerMsg">විනාඩි 25ක් phone එක පැත්තකින් තියලා පාඩම් කරමු. ඉවර වුණාම +30 XP</p>
+        <button class="btn" id="timerBtn">▶️ පටන් ගන්න</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="mapH">
+    <h2 id="mapH">විෂය දූපත් — විභාග පිළිවෙළට 🏝️</h2>
+    <p class="muted">පළමු විභාගයේ සිට අන්තිම විභාගය දක්වා. දූපතක් click කරලා ඇතුලට යන්න.</p>
+    <div class="map" id="map"></div>
+  </section>
+
+  <section aria-labelledby="ttH">
+    <div class="card">
+      <h2 id="ttH">📅 විභාග කාලසටහන — 2026 දෙසැම්බර් 08–17</h2>
+      <div class="tbl"><table class="tt">
+        <thead><tr><th>දිනය</th><th>උදය වරුව</th><th>කාලය</th><th>සවස වරුව</th><th>කාලය</th></tr></thead>
+        <tbody id="ttBody"></tbody>
+      </table></div>
+      <div class="callout tip"><span class="ic">💡</span><div><p>විභාග ශාලාවට <b>විනාඩි 30කට කලින්</b> යන්න. ප්‍රවේශ පත්‍රය, හැඳුනුම්පත, පෑන් 2ක්, පැන්සල, මකනය, කෝදුව (ගණිතයට කවකටුව, කෝණමානය) කලින් දවසේ රෑම බෑග් එකට දාගන්න.</p></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="planH">
+    <div class="card">
+      <h2 id="planH">🗓️ දෛනික පාඩම් සැලැස්ම (නොවැ. 23 – දෙසැ. 17)</h2>
+      <p class="muted">කහ පාට = අද. කළු = විභාග දවස. දවසකට පැය 2ක කොටස් 3–4ක්, අතරට විවේක.</p>
+      <div class="plan" id="plan"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="bdgH">
+    <div class="card">
+      <h2 id="bdgH">🏅 පදක්කම්</h2>
+      <div class="badges" id="badges"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="howH">
+    <div class="card">
+      <h2 id="howH">🎮 සෙල්ලම් කරන හැටි</h2>
+      <ul class="rules">
+        <li>පාඩමක් කියවලා <b>“ඉගෙන ගත්තා”</b> click කරන්න → <b>+10–20 XP</b></li>
+        <li>පසුගිය ප්‍රශ්නයකට ඔයාම පිළිතුර හිතලා, ඊට පස්සේ <b>“පිළිතුර බලන්න”</b> → <b>+5 XP</b></li>
+        <li>මතක කාඩ්පතක් පෙරළන්න → <b>+2 XP</b></li>
+        <li>Boss Quiz: නිවැරදි එකකට <b>+5 XP</b>, තරු ★ එකකට <b>+20 XP</b>. ❤️ ජීවිත 3යි!</li>
+        <li>හැමදාම ටිකක් හරි පාඩම් කළොත් 🔥 streak එක වැඩෙනවා.</li>
+        <li>Progress save වෙන්නේ මේ computer එකේ browser එකේ. Browser history clear කළොත් මැකෙනවා.</li>
+      </ul>
+      <button class="btn alt small" onclick="OL.reset()">♻️ Progress reset කරන්න</button>
+    </div>
+  </section>
+
+</main>
+<footer class="foot">O/L 2026 Study Quest · ජය වේවා! 🌸</footer>
+
+<script src="assets/game.js"></script>
+<script>
+(function () {
+  var S = OL.SUBJECTS;
+  var COLORS = { buddhism:'#F29E1F', sinhala:'#E2557A', history:'#C2531B', english:'#2F7BEF', literature:'#9B5DE5', maths:'#12A877', health:'#E5484D', science:'#0AA6C2', civic:'#5B5FEF' };
+  var BUILT = { buddhism: true, sinhala: true, english: true };   // subjects whose pages exist so far
+  var order = ['buddhism','sinhala','history','english','literature','maths','health','science','civic'];
+
+  var TT = [
+    ['2026-12-08','අඟහරුවාදා',['buddhism','I, II පත්‍ර','08:30–11:40'],null],
+    ['2026-12-09','බදාදා',['sinhala','I, II පත්‍ර','08:30–11:40'],['sinhala','III පත්‍රය','13:00–15:00']],
+    ['2026-12-10','බ්‍රහස්පතින්දා',['history','II පත්‍රය','08:30–11:40'],['history','I පත්‍රය','13:00–14:00']],
+    ['2026-12-11','සිකුරාදා',['english','I පත්‍රය / II පත්‍රය','08:30–09:30 / 09:45–11:45'],null],
+    ['2026-12-12','සෙනසුරාදා',null,['literature','I, II පත්‍ර','13:00–16:10']],
+    ['2026-12-14','සඳුදා',['maths','I පත්‍රය','08:30–10:30'],['maths','II පත්‍රය','13:00–16:10']],
+    ['2026-12-15','අඟහරුවාදා',['health','I, II පත්‍ර','08:30–11:40'],null],
+    ['2026-12-16','බදාදා',['science','II පත්‍රය','08:30–11:40'],['science','I පත්‍රය','13:00–14:00']],
+    ['2026-12-17','බ්‍රහස්පතින්දා',['civic','I, II පත්‍ර','08:30–11:40'],null]
+  ];
+
+  var PLAN = {
+    '2026-11-23':['buddhism','maths'], '2026-11-24':['sinhala','science'], '2026-11-25':['history','maths'],
+    '2026-11-26':['english','science'], '2026-11-27':['literature','health'], '2026-11-28':['civic','maths'],
+    '2026-11-29':['buddhism','history'], '2026-11-30':['sinhala','science'], '2026-12-01':['english','maths'],
+    '2026-12-02':['history','literature'], '2026-12-03':['health','civic','science'], '2026-12-04':['buddhism','maths'],
+    '2026-12-05':['sinhala','history'], '2026-12-06':['buddhism','sinhala'], '2026-12-07':['buddhism','sinhala'],
+    '2026-12-08':['sinhala'], '2026-12-09':['history'], '2026-12-10':['english'], '2026-12-11':['literature'],
+    '2026-12-12':['maths'], '2026-12-13':['maths'], '2026-12-14':['health'], '2026-12-15':['science'],
+    '2026-12-16':['civic'], '2026-12-17':[]
+  };
+  var NOTES = {
+    '2026-12-04':'බුද්ධ ධර්මය: සම්පූර්ණ past paper එකක් පැය 3යි විනාඩි 10න්',
+    '2026-12-07':'බුද්ධ ධර්මය: අවසාන රාත්‍රී සටහන + Boss Quiz. වේලාසනින් නිදාගන්න 😴',
+    '2026-12-13':'ගණිතය: past paper 2ක් time කරලා'
+  };
+  var MON = ['ජන.','පෙබ.','මාර්තු','අප්‍රේල්','මැයි','ජූනි','ජූලි','අගෝ.','සැප්.','ඔක්.','නොවැ.','දෙසැ.'];
+  function fmt(ds) { var d = new Date(ds + 'T00:00'); return MON[d.getMonth()] + ' ' + d.getDate(); }
+  var today = OL.dayStr();
+  var examDays = {}; TT.forEach(function (r) { examDays[r[0]] = r; });
+
+  /* next exam countdown */
+  function renderNext() {
+    var now = new Date(), next = null;
+    order.forEach(function (k) { var t = new Date(S[k].exam); if (!next && t > now) next = k; });
+    var box = document.getElementById('nextExam');
+    if (!next) { box.innerHTML = '<div class="big">🎉</div><div class="subj">විභාග ඉවරයි! ජය වේවා!</div>'; return; }
+    var t = new Date(S[next].exam), ms = t - now, d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5);
+    box.innerHTML = '<div class="muted" style="color:inherit;opacity:.8">ඊළඟ විභාගයට තව</div>' +
+      '<div><span class="big">' + d + '</span> <span class="unit">දින</span> <span class="big" style="font-size:2.4rem">' + h + '</span> <span class="unit">පැය</span></div>' +
+      '<div class="subj">' + S[next].icon + ' ' + S[next].name + '</div>' +
+      '<div class="when">' + fmt(S[next].exam.slice(0, 10)) + ' · ' + S[next].exam.slice(11) + ' · විෂය අංකය ' + S[next].code + '</div>' +
+      (BUILT[next] ? '<p style="margin:14px 0 0"><a class="btn" href="subjects/' + next + '/index.html">දැන්ම පාඩම් කරමු ➜</a></p>' : '');
+  }
+  renderNext(); setInterval(renderNext, 60000);
+
+  /* island map */
+  var map = document.getElementById('map'), now = new Date();
+  order.forEach(function (k, i) {
+    var s = S[k], built = BUILT[k], past = new Date(s.exam) < now;
+    var days = Math.ceil((new Date(s.exam.slice(0, 10) + 'T00:00') - new Date(today + 'T00:00')) / 864e5);
+    var a = document.createElement('a');
+    a.className = 'island' + (built ? '' : ' locked') + (past ? ' past' : '');
+    a.href = built ? 'subjects/' + k + '/index.html' : '#';
+    if (!built) a.onclick = function (e) { e.preventDefault(); OL.toast('🔨 ' + s.name + ' දූපත හදමින් පවතී — ඉක්මනින් එනවා!'); };
+    a.innerHTML = '<span class="flag">' + (built ? (past ? 'ඉවරයි ✓' : days + ' දිනකින්') : '🔒 හදමින්') + '</span>' +
+      '<span class="ic" style="background:' + COLORS[k] + '">' + s.icon + '</span>' +
+      '<span><h3>' + s.name + '</h3><span class="d">' + fmt(s.exam.slice(0, 10)) + ' · #' + s.code + '</span>' +
+      '<div class="bar" data-subj-progress="' + k + '"><i style="background:' + COLORS[k] + '"></i></div><span class="pct">0%</span></span>';
+    map.appendChild(a);
+  });
+
+  /* timetable */
+  var tb = document.getElementById('ttBody');
+  function cell(c) { return c ? '<td><span class="sbj"><span class="dot" style="background:' + COLORS[c[0]] + '"></span>' + S[c[0]].code + ' ' + S[c[0]].name + ' — ' + c[1] + '</span></td><td class="en">' + c[2] + '</td>' : '<td>—</td><td>—</td>'; }
+  TT.forEach(function (r) {
+    var tr = document.createElement('tr'); if (r[0] === today) tr.className = 'today';
+    tr.innerHTML = '<td>' + fmt(r[0]) + '<br><small>' + r[1] + '</small></td>' + cell(r[2]) + cell(r[3]);
+    tb.appendChild(tr);
+  });
+
+  /* daily plan */
+  var plan = document.getElementById('plan');
+  Object.keys(PLAN).forEach(function (ds) {
+    var ex = examDays[ds], div = document.createElement('div');
+    div.className = 'day' + (ds === today ? ' today' : '') + (ex ? ' exam' : '') + (ds < today ? ' gone' : '');
+    var h = '<div class="dt">' + fmt(ds) + (ds === today ? ' · අද' : '') + '</div>';
+    if (ex) h += '<div>📝 විභාගය: ' + [ex[2], ex[3]].filter(Boolean).map(function (c) { return S[c[0]].name; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(', ') + '</div>';
+    if (PLAN[ds].length) h += '<ul>' + PLAN[ds].map(function (k) { return '<li>' + S[k].icon + ' ' + S[k].name + '</li>'; }).join('') + '</ul>';
+    if (NOTES[ds]) h += '<div><small>⭐ ' + NOTES[ds] + '</small></div>';
+    div.innerHTML = h; plan.appendChild(div);
+  });
+
+  /* today */
+  var tp = PLAN[today], tbox = document.getElementById('todayPlan');
+  if (tp) {
+    var ex = examDays[today];
+    tbox.innerHTML = (ex ? '<p>📝 <b>අද විභාගයක් තියෙනවා!</b> සන්සුන්ව ඉන්න. ඔයාට පුළුවන් 💪</p>' : '') +
+      (tp.length ? '<p>අද අවධානය:</p><p>' + tp.map(function (k) {
+        return BUILT[k] ? '<a class="btn small" style="margin:0 6px 6px 0;background:' + COLORS[k] + ';color:#fff" href="subjects/' + k + '/index.html">' + S[k].icon + ' ' + S[k].name + '</a>'
+                        : '<span class="chip" style="margin:0 6px 6px 0">' + S[k].icon + ' ' + S[k].name + '</span>';
+      }).join('') + '</p>' : '<p>සියලු විභාග ඉවරයි! 🎉</p>') + (NOTES[today] ? '<p>⭐ ' + NOTES[today] + '</p>' : '');
+  } else {
+    tbox.innerHTML = '<p>අද සඳහා සැලැස්මක් නැහැ. ඊළඟ විභාගයේ විෂය පාඩම් කරන්න.</p>';
+  }
+
+  /* badges */
+  var st = OL.state(), bx = document.getElementById('badges'), got = 0;
+  OL.BADGES.forEach(function (b) {
+    var on = !!st.badges[b.id]; if (on) got++;
+    var d = document.createElement('div'); d.className = 'bdg' + (on ? '' : ' off');
+    d.innerHTML = '<div class="i">' + b.icon + '</div><b>' + b.name + '</b><small>' + b.desc + '</small>';
+    bx.appendChild(d);
+  });
+  document.getElementById('badgeCount').textContent = got;
+
+  /* focus timer — engine lives in game.js; top bar shows countdown on every page */
+  var btn = document.getElementById('timerBtn'), T = document.getElementById('timerT'), M = document.getElementById('timerMsg');
+  OL.timer.onTick(function (st, left) {
+    if (st === 'done') { T.textContent = '00:00'; btn.textContent = '▶️ ආයෙත්'; M.textContent = 'නියමයි! දැන් විනාඩි 5ක් විවේක ගන්න ☕'; return; }
+    if (st === 'idle') { if (T.textContent !== '00:00') T.textContent = '25:00'; btn.textContent = '▶️ පටන් ගන්න'; return; }
+    var m = Math.floor(left / 60000), s = Math.floor(left % 60000 / 1000);
+    T.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); btn.textContent = '⏹️ නවත්වන්න';
+    M.textContent = 'Timer එක උඩ bar එකේ පේනවා — වෙන පිටුවකට ගියත් දිගටම යනවා 👆';
+  });
+  btn.onclick = function () { OL.timer.running() ? OL.timer.stop() : OL.timer.start(); };
+})();
+</script>
+</body>
+</html>

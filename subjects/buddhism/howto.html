@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="si">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>බුද්ධ ධර්මය — පිළිතුරු ලියන හැටි</title>
+<link rel="stylesheet" href="../../assets/game.css">
+<style>
+  .formula { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; font-family: var(--f-head); font-weight: 700; }
+  .formula span { border: 2.5px solid var(--line); border-radius: 12px; padding: 6px 12px; background: var(--paper); }
+  .formula span.op { border: none; background: none; padding: 0; font-size: 1.3rem; }
+  .bad, .good { border: 2.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+  .bad { background: #FFE2E3; color: #1E2350; }
+  .good { background: #DDF7EC; color: #1E2350; }
+</style>
+</head>
+<body data-root="../../" data-subject="buddhism" data-page="howto">
+<main class="wrap-narrow">
+  <div class="page-head">
+    <div class="kicker">මට්ටම 5</div>
+    <h1>✍️ පිළිතුරු ලියන හැටි</h1>
+    <p>දන්න දේ හරි විදිහට ලිව්වොත් තමයි ලකුණු. Marking scheme වල ලකුණු දෙන රටාව අනුව හැම ප්‍රශ්න වර්ගයකටම “සූත්‍රයක්” මෙන්න.</p>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+
+  <nav class="toc" aria-label="ප්‍රශ්න වර්ග">
+    <a href="#s1">📛 නම් කරන්න (2)</a>
+    <a href="#s2">🔤 අර්ථය ලියන්න (2–3)</a>
+    <a href="#s3">📜 ගාථාව සම්පූර්ණ කරන්න</a>
+    <a href="#s4">💡 පැහැදිලි කරන්න (3)</a>
+    <a href="#s5">🏆 ඇගයීම / අදාළ කරන්න (5)</a>
+    <a href="#s6">📝 කෙටි සටහන් (5)</a>
+    <a href="#s7">✏️ රූප සටහන</a>
+  </nav>
+
+  <section class="card lesson" id="s1">
+    <h2>📛 “නම් කරන්න / ලියා දක්වන්න” — ලකුණු 2</h2>
+    <div class="formula"><span>කරුණ 1</span><span class="op">+</span><span>කරුණ 2</span><span class="op">=</span><span style="background:var(--sun);color:#1E2350">2 ✓</span></div>
+    <ul class="points"><li>වාක්‍ය අවශ්‍ය නැහැ. පැහැදිලිව, අංක දාලා ලියන්න.</li><li>“දෙකක්” ඇහුවොත් <b>දෙකක් විතරයි</b> — වැඩිපුර ලිව්වාට ලකුණු නැහැ, වැරදි එකක් ඇතුළත් වුණොත් ගැටලු.</li><li>පාලි නම නොදන්නවා නම් සිංහල නම ලියන්න (උදා: “ඛන්ති” නැත්නම් “ක්ෂාන්තිය/ඉවසීම”) — MS දෙකම පිළිගන්නවා.</li></ul>
+    <div class="grid-2">
+      <div class="bad"><b>❌</b> “දස පාරමිතා අතරින් දානය හා සීලය හා තවත් ඒවා තියෙනවා, ඒවා පුරනවා...”</div>
+      <div class="good"><b>✅</b> 1. දාන පාරමිතාව<br>2. සීල පාරමිතාව</div>
+    </div>
+    <button data-done="bud-how-1" data-xp="10">තේරුණා</button>
+  </section>
+
+  <section class="card lesson" id="s2">
+    <h2>🔤 පාලි පාඨයක “අර්ථය / අදහස ලියන්න” — ලකුණු 2–3</h2>
+    <div class="formula"><span>වචනාර්ථය</span><span class="op">+</span><span>සරල අදහස</span><span class="op">(+</span><span>උදාහරණය)</span></div>
+    <p>Q1 හැම වසරකම පාලි පාඨයක් එනවා. පුරුදු වෙන්න:</p>
+    <div class="tbl"><table>
+      <thead><tr><th>පාඨය</th><th>ආදර්ශ පිළිතුර</th></tr></thead>
+      <tbody>
+        <tr><td class="pali">ඉමස්මිං සති ඉදං හෝති</td><td>මෙය ඇති කල්හි මෙය වේ — හේතු ඇති විට ඵල ඇති වේ.</td></tr>
+        <tr><td class="pali">තණ්හා පච්චයා උපාදානං</td><td>තෘෂ්ණාව හේතුවෙන් උපාදානය (දැඩි ඇලීම) ඇති වේ.</td></tr>
+        <tr><td class="pali">සළායතන පච්චයා ඵස්සෝ</td><td>ආයතන හය (ඇස, කන, නාසය, දිව, කය, මනස) හේතුවෙන් ස්පර්ශය ඇති වේ.</td></tr>
+        <tr><td class="pali">නිබ්බානං පරමං සුඛං</td><td>නිවන උතුම්ම සැපයයි.</td></tr>
+        <tr><td class="pali">ජිඝච්ඡා පරමා රෝගා</td><td>කුසගින්න බලවත්ම රෝගයයි.</td></tr>
+        <tr><td class="pali">ආරෝග්‍යා පරමා ලාභා</td><td>නිරෝගී බව උතුම්ම ලාභයයි.</td></tr>
+        <tr><td class="pali">කායේන සංවරෝ සාධු</td><td>කයින් සංවර වීම යහපත්ය.</td></tr>
+      </tbody>
+    </table></div>
+    <button data-done="bud-how-2" data-xp="10">තේරුණා</button>
+  </section>
+
+  <section class="card lesson" id="s3">
+    <h2>📜 ධම්මපද ගාථාව — (i) 2 + (ii) 3 + (iii) 5</h2>
+    <ol class="points">
+      <li><b>(i) සම්පූර්ණ කරන්න:</b> පාද 4ම (හෝ 6ම) පේළියට. MS එකේ “අක්ෂර වින්‍යාසය නොසලකන්න” — පොඩි වැරදිවලට බය වෙන්න එපා, ඒත් පාද මාරු කරන්න එපා.</li>
+      <li><b>(ii) තේරුම:</b> පාදයක් පාදයක් ගෙන සිංහලෙන්. කෙටි, පැහැදිලි.</li>
+      <li><b>(iii) ආදර්ශ / ශිෂ්‍ය ජීවිතයට:</b> ගාථාවේ ප්‍රධාන අදහස → කරුණු 4–5ක් → හැම කරුණකටම ශිෂ්‍ය ජීවිතයෙන් උදාහරණයක්.</li>
+    </ol>
+    <a class="btn alt small" href="theory-2.html#l6">📜 ගාථා බැංකුවට යන්න</a>
+    <button data-done="bud-how-3" data-xp="10">තේරුණා</button>
+  </section>
+
+  <section class="card lesson" id="s4">
+    <h2>💡 “සැකෙවින් පැහැදිලි කරන්න” — ලකුණු 3</h2>
+    <div class="formula"><span>අර්ථ දැක්වීම</span><span class="op">+</span><span>ලක්ෂණ/විස්තර</span><span class="op">+</span><span>නිදසුන</span><span class="op">=</span><span style="background:var(--sun);color:#1E2350">3 ✓</span></div>
+    <div class="good"><b>✅ උදා — ක්ෂාන්ති පාරමිතාව:</b> ක්ෂාන්තිය යනු ඉවසීමයි (අර්ථය). අනුන්ගෙන් ලැබෙන නින්දා, අපහාස, කායික මානසික පීඩා කෝප නොවී ඉවසීම මෙයින් අදහස් වේ (විස්තර). ඛන්තිවාදී තාපසයා අත් පා කපා දැමූ විටද කලාබු රජුට කෝප නොවී සිටීම ක්ෂාන්තියට නිදසුනකි (නිදසුන).</div>
+    <button data-done="bud-how-4" data-xp="10">තේරුණා</button>
+  </section>
+
+  <section class="card lesson" id="s5">
+    <h2>🏆 “ඇගයීමට ලක් කරන්න / ඉවහල් වන ආකාරය / අදාළ කරගන්නා අයුරු” — ලකුණු 5</h2>
+    <p>Marking scheme: <b>“පිළිතුර සමස්තයක් ලෙස සලකා ලකුණු දෙන්න”</b> — කරුණු ගණන + ගැඹුර + ජීවිතයට සම්බන්ධ කිරීම යන තුනම බලනවා.</p>
+    <h3>PEEL සැකැස්ම (ඡේද 3–4)</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>කොටස</th><th>ලියන දේ</th><th>වාක්‍ය</th></tr></thead>
+      <tbody>
+        <tr><td>1. හැඳින්වීම</td><td>මාතෘකාව බුදු දහමේ කොහිද, ප්‍රධාන අදහස</td><td>1–2</td></tr>
+        <tr><td>2. කරුණු 3–4</td><td>හැම කරුණක්ම: <b>කරුණ → පැහැදිලි කිරීම → උදාහරණය</b> (කතාවක් / අද ජීවිතය)</td><td>එකකට 2–3</td></tr>
+        <tr><td>3. නිගමනය</td><td>පුද්ගලයාට / සමාජයට / ශාසනයට වැදගත්කම</td><td>1–2</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout tip"><span class="ic">💡</span><div><p><b>මැජික් වචන:</b> “ශිෂ්‍යයෙකු ලෙස…”, “වර්තමාන සමාජයේ…”, “නිදසුනක් ලෙස…”, “එමගින් … සලසා ගත හැකියි” — ජීවිතයට අදාළ කිරීම පෙන්වන්න.</p></div></div>
+    <div class="good"><b>✅ උදා — “දස පාරමිතා පිරීමෙන් පරාර්ථ සේවය සැලසෙන ආකාරය” (2025):</b><br>
+    පාරමිතා යනු බුද්ධත්වය වැනි උතුම් අරමුණු සඳහා පුරන ගුණධර්ම වන අතර ඒවායින් ස්වාර්ථය මෙන්ම පරාර්ථය ද සැලසේ.<br>
+    • <b>දානය</b> — දෙන්නාට කුසල් ලැබෙන අතර ලබන්නාගේ අවශ්‍යතා සපිරේ; උදා: ආපදාවකදී ආහාර බෙදීම.<br>
+    • <b>සීලය</b> — ප්‍රාණඝාතාදියෙන් වැළකීම නිසා සමාජයේ සැමට බියෙන් තොරව ජීවත් විය හැකියි.<br>
+    • <b>මෛත්‍රිය</b> — කිසිවෙකුට පීඩා නොකරන පුද්ගලයා නිසා සමාජය සාමකාමී වේ.<br>
+    • <b>සත්‍යය</b> — බොරුව, වංචාව නැති වී විශ්වාසය ගොඩනැගේ.<br>
+    • <b>උපේක්ෂාව</b> — අටලෝ දහමට නොසැලී සාධාරණව කටයුතු කිරීමෙන් යුක්තිසහගත සමාජයක් බිහි වේ.<br>
+    එබැවින් පාරමිතා පිරීම පුද්ගලයාගේ මෙන්ම සමස්ත සමාජයේ යහපතට හේතු වේ.</div>
+    <button data-done="bud-how-5" data-xp="15">තේරුණා</button>
+  </section>
+
+  <section class="card lesson" id="s6">
+    <h2>📝 කෙටි සටහන් (Q7) — 4න් 2ක්, ලකුණු 5 බැගින්</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>මාතෘකා වර්ගය</th><th>ලියන්න ඕනේ කරුණු 5</th></tr></thead>
+      <tbody>
+        <tr><td>👤 පුද්ගලයෙක් (ධර්මපාල, සරණංකර, රේරුකානේ, දුටුගැමුණු)</td><td>කාලය/පසුබිම · ප්‍රධාන සේවා 2–3 · කෘති/නිර්මාණ · ලබාගත හැකි ආදර්ශය</td></tr>
+        <tr><td>🛕 ගෘහ නිර්මාණ/කලා (වටදාගෙය, වාහල්කඩ, ප්‍රතිමාඝර, සඳකඩපහණ)</td><td>අර්ථ දැක්වීම · ස්ථානය/යුගය · කොටස්/ලක්ෂණ · සංකේතාර්ථය · නිදසුන් ස්ථාන</td></tr>
+        <tr><td>📚 ධර්ම කරුණක් (නීවරණ, ත්‍රිලක්ෂණය, සම්මා වාචා)</td><td>අර්ථය · අයත් වන කාණ්ඩය · ලක්ෂණ · උපමාවක් · ජීවිතයට වැදගත්කම</td></tr>
+        <tr><td>📜 සංගායනාවක් (අලුවිහාර)</td><td>කාලය/රජු · ස්ථානය · මූලික හිමි · හේතු · ප්‍රතිඵල</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout tip"><span class="ic">💡</span><div><p><b>අංක දාලා කරුණු 5–6ක් ලියන්න.</b> ඡේදයකට වඩා ලකුණු දෙන කෙනාට කරුණු ගණන් කරන්න ලේසියි 😉</p></div></div>
+    <button data-done="bud-how-6" data-xp="10">තේරුණා</button>
+  </section>
+
+  <section class="card lesson" id="s7">
+    <h2>✏️ රූප සටහන් (ස්තූපය)</h2>
+    <p>2020 Q6, 2016, 2009 — “ස්තූපයක රූප සටහනක් ඇඳ කොටස් නම් කරන්න”. පැන්සලෙන්, කෝදුවෙන්, විශාල කර අඳින්න. කොටස් 7ම ඊතල දමා නම් කරන්න.</p>
+    <a class="btn alt small" href="theory-8.html#l4">🛕 ස්තූප රූප සටහන බලන්න</a>
+    <button data-done="bud-how-7" data-xp="10">තේරුණා</button>
+  </section>
+</main>
+<footer class="foot">ජය වේවා! 🌸</footer>
+<script src="../../assets/game.js"></script>
+<script src="../../assets/tabs.js"></script>
+</body>
+</html>
