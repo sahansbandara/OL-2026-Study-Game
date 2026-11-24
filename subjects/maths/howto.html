@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="si">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ගණිතය — පිළිතුරු ලියන හැටි</title>
+<link rel="stylesheet" href="../../assets/game.css">
+<style>
+  .fr { display: inline-block; vertical-align: middle; text-align: center; margin: 0 2px; line-height: 1.2; font-size: .95em; }
+  .fr > span { display: block; padding: 0 3px; }
+  .fr > span:first-child { border-bottom: 1.5px solid currentColor; }
+  .fig { border: 2.5px dashed var(--line); border-radius: 12px; padding: 8px 12px; margin: 10px 0; background: #FFF9E3; color: #1E2350; font-size: .92rem; }
+  .fig b { display: block; margin-bottom: 2px; }
+  .est { border: 2.5px solid var(--line); border-radius: 12px; padding: 8px 12px; margin: 0 0 10px; background: #FFE2E3; color: #1E2350; font-weight: 700; }
+  .sub { margin: 6px 0; }
+  .work { font-family: var(--f-body); background: var(--paper); border: 2px solid var(--line); border-radius: 12px; padding: 10px 14px; margin: 10px 0; line-height: 1.9; }
+  .work .ln { display: block; }
+  .work .ln small { color: var(--ink-soft); }
+  .work .ans { font-weight: 700; text-decoration: underline; }
+  .mm { background: #DDF7EC; color: #1E2350; border: 2px solid var(--line); border-radius: 8px; padding: 0 8px; font-weight: 700; font-size: .85rem; }
+  .formula-box { border: 2.5px solid var(--line); border-radius: 12px; padding: 10px 14px; margin: 10px 0; background: var(--paper); }
+  .formula-box b { display: block; font-family: var(--f-head); }
+
+  .formula { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; font-family: var(--f-head); font-weight: 700; }
+  .formula span { border: 2.5px solid var(--line); border-radius: 12px; padding: 6px 12px; background: var(--paper); }
+  .formula span.op { border: none; background: none; padding: 0; font-size: 1.3rem; }
+  .bad, .good { border: 2.5px solid var(--line); border-radius: 14px; padding: 12px 14px; margin: 10px 0; line-height: 1.9; }
+  .bad { background: #FFE2E3; color: #1E2350; }
+  .good { background: #DDF7EC; color: #1E2350; }
+  .bad b, .good b { display: block; }
+</style>
+</head>
+<body data-root="../../" data-subject="maths" data-page="howto">
+<main class="wrap-narrow">
+  <div class="page-head">
+    <div class="kicker">මට්ටම 5</div>
+    <h1>✍️ පිළිතුරු ලියන හැටි</h1>
+    <p>ගණිතයේ ලකුණු බෙදෙන්නේ <b>ක්‍රමයට</b> සහ <b>පිළිතුරට</b>. පසුගිය වසරවල ලකුණු දීමේ පටිපාටිවල (2019–2025) මේ රටාව හැම තැනම තියෙනවා. පහත පියවර ලිව්වොත් වැරදුණත් ලකුණු ඉතිරි වෙනවා.</p>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+
+  <nav class="toc" aria-label="කොටස්">
+    <a href="#s1">🪜 පියවර සැකැස්ම</a>
+    <a href="#s2">🏷️ ඒකක</a>
+    <a href="#s3">🎯 ක්‍රමයට vs පිළිතුරට</a>
+    <a href="#s4">⏱️ ප්‍රශ්නයකට කාලය</a>
+    <a href="#s5">🧩 ප්‍රශ්න වර්ග අනුව</a>
+    <a href="#s6">🚫 සම්මත වැරදි</a>
+  </nav>
+
+  <section class="card lesson" id="s1">
+    <h2>🪜 පියවර සැකැස්ම — “සූත්‍රය → ආදේශය → ගණනය → පිළිතුර + ඒකකය”</h2>
+    <div class="formula"><span>දී ඇති දත්ත</span><span class="op">→</span><span>සූත්‍රය</span><span class="op">→</span><span>ආදේශය</span><span class="op">→</span><span>ගණනය</span><span class="op">→</span><span>පිළිතුර + ඒකකය</span></div>
+    <p><b>උදාහරණය:</b> අරය 7 cm, උස 10 cm සිලින්ඩරයක පරිමාව (π = <span class="fr"><span>22</span><span>7</span></span>).</p>
+    <div class="good"><b>✅ හොඳ පිළිතුර (ලකුණු හැමටම ලැබේ)</b>
+      පරිමාව = πr²h  <small>(සූත්‍රය)</small><br>
+      = <span class="fr"><span>22</span><span>7</span></span> × 7 × 7 × 10  <small>(ආදේශය)</small><br>
+      = 22 × 7 × 10  <small>(සුළු කිරීම)</small><br>
+      = <b style="display:inline"><u>1540 cm³</u></b>  <small>(පිළිතුර + ඒකකය)</small></div>
+    <div class="bad"><b>❌ දුර්වල පිළිතුර</b>
+      1540<br><small>පිළිතුර නිවැරදි වුණත් ඒකකය නැහැ; පියවර නැහැ. 2-ලකුණු ප්‍රශ්නයක “ක්‍රමයට 1” ලැබෙන්නේ නැති වෙන්න පුළුවන්. පිළිතුර වැරදුණොත් ලකුණු 0.</small></div>
+    <ul class="points">
+      <li>සමාන ලකුණ (=) පහළට පහළට පේළියක් යට ලියන්න — එක පේළියක “= = =” දාමයක් එපා.</li>
+      <li>වරහන් භාවිත කරන්න: (a + b)² ≠ a² + b².</li>
+      <li>අවසාන පිළිතුරට යටින් ඉරක් අඳින්න — පරීක්ෂකයාට ඉක්මනින් පෙනේවි.</li>
+      <li>සමීකරණ විසඳූ පසු <b>x අගය ආදේශ කර පරීක්ෂා</b> කරන්න (ලකුණක් නැති වුණත් වැරදි අල්ලගන්න පුළුවන්).</li>
+    </ul>
+    <button data-done="mat-how-1" data-xp="10">පියවර සැකැස්ම මතකයි</button>
+  </section>
+
+  <section class="card lesson" id="s2">
+    <h2>🏷️ ඒකක — කොතැනද, මොනවාද</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>ප්‍රශ්න වර්ගය</th><th>ඒකකය</th></tr></thead>
+      <tbody>
+        <tr><td>දිග, පරිමිතිය, චාප දිග</td><td>cm, m, km</td></tr>
+        <tr><td>වර්ගඵලය, පෘෂ්ඨ වර්ගඵලය</td><td>cm², m²</td></tr>
+        <tr><td>පරිමාව</td><td>cm³, m³ (ධාරිතාව: ලීටර් / මිලි ලීටර්)</td></tr>
+        <tr><td>මුදල් (බද්ද, පොලිය, කොටස්)</td><td>රු.</td></tr>
+        <tr><td>ශීඝ්‍රතාව</td><td>km/h, m/s (ඒකක මාරු කළ යුතු නම් පළමුව එක ඒකක කරන්න)</td></tr>
+        <tr><td>කෝණ</td><td>° (අංශක) — හේතුව ලියන්න (බලන්න “වෘත්ත / ජ්‍යාමිතිය”)</td></tr>
+        <tr><td>සම්භාවිතාව, අනුපාතය, ප්‍රතිශතය</td><td>ඒකකයක් නැහැ; ප්‍රතිශතයට % ලියන්න</td></tr>
+      </tbody>
+    </table></div>
+    <button data-done="mat-how-2" data-xp="10">ඒකක මතකයි</button>
+  </section>
+
+  <section class="card lesson" id="s3">
+    <h2>🎯 ක්‍රමයට ලකුණු vs පිළිතුරට ලකුණු</h2>
+    <p>සැබෑ ලකුණු දීමේ පටිපාටි (2019–2025) මෙහෙමයි:</p>
+    <div class="tbl"><table>
+      <thead><tr><th>ප්‍රශ්නය</th><th>ලකුණු බෙදුණු හැටි</th><th>උගන්වන්නේ</th></tr></thead>
+      <tbody>
+        <tr><td>2025 A1 — ආනයනික භාණ්ඩය 14% බද්ද</td><td>114/100 (හෝ 14/100) යෙදීමට <b>1</b>; පිළිතුරට <b>1</b></td><td>ක්‍රමය 1 + පිළිතුර 1</td></tr>
+        <tr><td>2025 A3 — සමීකරණය 4/x − 5/(2x) = 1/8</td><td>හරය සමාන කිරීමට <b>1</b>; x = 12 → <b>1</b></td><td>පියවරක් ලිව්වාම ලකුණ ලැබේ</td></tr>
+        <tr><td>2025 A2 — බාහිර කෝණය 130° (ACB = ?)</td><td>නිවැරදි පිළිතුර (80°) <b>2</b>; වැරදි නම් CAB = CBA හෝ CBA = 50° සඳහා <b>1</b></td><td>අර්ධ පියවරටත් ලකුණු</td></tr>
+        <tr><td>2025 B1 — පොලී / වරිපනම් (ලකුණු 10)</td><td>(i) 1+1 · (ii) 1+1 · (iii) 14 400 හා 9000 (1+1), සූත්‍රය 1, 13% 1 · (iv) 1+1 — එකතුව 2+2+4+2</td><td>සූත්‍රයටත් ලකුණක්</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout tip"><span class="ic">💡</span><div><p>එකම විදිහට: <b>පළමු පියවරට 1, අවසන් පිළිතුරට 1</b> කියලා හිතන්න. පියවරක් නැතිව පිළිතුර පමණක් ලිව්වාම, පිළිතුර වැරදුණොත් ලකුණු 0යි.</p></div></div>
+    <button data-done="mat-how-3" data-xp="10">හරි</button>
+  </section>
+
+  <section class="card lesson" id="s4">
+    <h2>⏱️ ප්‍රශ්නයකට කාලය</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>කොටස</th><th>ලකුණු</th><th>ලබාදිය යුතු කාලය</th><th>අරමුණ</th></tr></thead>
+      <tbody>
+        <tr><td>I · A</td><td class="c">2</td><td class="c">≈ 1.8 විනාඩි</td><td>2 විනාඩියට වඩා හිරවුණොත් ✱ දමා ඉදිරියට</td></tr>
+        <tr><td>I · B</td><td class="c">10</td><td class="c">≈ 12 විනාඩි</td><td>(i) 2–3, (ii) 3, (iii) 3, (iv) 3 විනාඩි</td></tr>
+        <tr><td>II · A / B</td><td class="c">10</td><td class="c">≈ 16 විනාඩි</td><td>රූප / නිර්මාණ ප්‍රශ්න 18 විනාඩි වුවත් ඉඩ තියන්න</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted">මුළු වේලාව: I පත්‍රය 45 + 60 + 15 = 120; II පත්‍රය 10 + 160 + 20 = 190 (විස්තර <a href="exam.html">විභාග ව්‍යුහය</a> පිටුවේ).</p>
+    <button data-done="mat-how-4" data-xp="10">කාල සැලැස්ම මතකයි</button>
+  </section>
+
+  <section class="card lesson" id="s5">
+    <h2>🧩 ප්‍රශ්න වර්ග අනුව ලියන හැටි</h2>
+
+    <h3>💰 ප්‍රතිශත / බදු / පොලී / කොටස් <span class="hot">🔥</span></h3>
+    <div class="good"><b>✅ රටාව</b>
+      1. දත්ත ලියන්න: P = රු. …, R = …%, N = … (කාලය <u>වසර</u>වලින්).<br>
+      2. සූත්‍රය: සරල පොලිය I = <span class="fr"><span>PRN</span><span>100</span></span>. මාස 6 = <span class="fr"><span>1</span><span>2</span></span> වසරක් (2025 B1 (ii) හි පොදු වැරැද්ද).<br>
+      3. ආදේශය → ගණනය → <u>රු. …</u>.<br>
+      4. “මුළු මුදල” ඇහුවොත් පොලිය + මුල් මුදල.</div>
+    <div class="bad"><b>❌ සාමාන්‍ය වැරදි</b>
+      තීරු බද්ද පමණක් ලිවීම, භාණ්ඩයේ වටිනාකමට එකතු නොකිරීම (2025 A1: 114/100 හෝ රු. 8 400 + 60 000).</div>
+
+    <h3>⚖️ සමීකරණ <span class="hot">🔥</span></h3>
+    <ul class="points">
+      <li>සරල: දෙපැත්තටම එකම ක්‍රියාව; හරය ඇත්නම් කු.පො.ගු. එකෙන් ගුණ කරන්න.</li>
+      <li>සමගාමී: ඉවත් කිරීම හෝ ආදේශය — දෙකෙන් ඔබට පහසු එක; <b>x හා y දෙකම</b> ලියන්න.</li>
+      <li>වර්ගජ: ax² + bx + c = 0 ආකාරයට ගෙනවිත් සාධක ක්‍රමයෙන් (හෝ සූත්‍රයෙන්); “=0” පියවරක් අනිවාර්යයෙන් ලියන්න; පිළිතුරු දෙකම (සෘණ අගයත්) ලියන්න. ප්‍රශ්නයේ සන්දර්භයට නොගැළපෙන අගය (උදා: දිග සෘණ) <b>ඉවත ලන්න</b>.</li>
+    </ul>
+
+    <h3>🟦 පෘෂ්ඨ වර්ගඵලය / පරිමාව <span class="hot">🔥</span></h3>
+    <ul class="points">
+      <li>මුලින් නම ලියන්න: “වක්‍ර පෘෂ්ඨ වර්ගඵලය = 2πrh”; පසුව ආදේශය.</li>
+      <li>සංයුක්ත වස්තු (සිලින්ඩරය + අර්ධ ගෝලය, කේතුව + සිලින්ඩරය): <b>එක එක කොටසට වෙන වෙනම</b> ලියා, පසුව එකතු කරන්න.</li>
+      <li>ඒකක: cm² (වර්ගඵලය) vs cm³ (පරිමාව).</li>
+    </ul>
+
+    <h3>⭕ වෘත්ත / ජ්‍යාමිතිය — “හේතුව” ලියන්න <span class="hot">🔥</span></h3>
+    <div class="good"><b>✅ ලියන ආකාරය</b>
+      ∠ACB = <span class="fr"><span>1</span><span>2</span></span> ∠AOB  <small>(කේන්ද්‍රයේ කෝණය = පරිධියේ කෝණයේ 2 ගුණයයි)</small><br>
+      = <span class="fr"><span>1</span><span>2</span></span> × 100° = <u>50°</u></div>
+    <div class="bad"><b>❌</b> “∠ACB = 50°” — කෝණයක් සොයන විට හේතුව නැති නම් බොහෝ විට ලකුණු අඩුයි (නිල marking scheme එකේ වචන බලන්න).</div>
+    <ul class="points">
+      <li>රූපයේ සෑම කෝණයක්ම සොයද්දී රූපයේ අගය ලියන්න (a, b, c).</li>
+      <li>ප්‍රමේය නම: කේන්ද්‍ර කෝණය, එකම ඛණ්ඩයේ කෝණ, අර්ධ වෘත්තයේ කෝණය, වෘත්ත චතුරස්‍රයේ සම්මුඛ කෝණ (180°), ස්පර්ශකය ⊥ අරය.</li>
+    </ul>
+
+    <h3>📏 නිර්මාණ</h3>
+    <ul class="points">
+      <li>කවකටුව සහ කෝදුව පමණයි. <b>නිර්මාණ චාප මකන්න එපා</b> — ඒවා පෙනෙන්න තියන්න.</li>
+      <li>ලකුණු කරන ලක්ෂ්‍යවලට නම දෙන්න; පියවර 1–2 වාක්‍යයෙන් ලියන්න (ප්‍රශ්නය ඉල්ලන්නේ නම්).</li>
+      <li>නිර්මාණයේ අවසානයේ දිග / කෝණය කෝණමානයෙන්/කෝදුවෙන් නැවත මැන බලන්න.</li>
+    </ul>
+
+    <h3>📈 ප්‍රස්තාර</h3>
+    <ul class="points">
+      <li>වගුව පළමුව සම්පූර්ණ කරන්න (x හා y අගය). පසුව අක්ෂ දෙක ලේබල් කර <b>පරිමාණය</b> ලියන්න (1 cm = ... ඒකක).</li>
+      <li>ලක්ෂ්‍ය × ලෙස ලකුණු කර <b>සුමට වක්‍රයක්</b> අඳින්න (වර්ගජයට). රේඛීය නම් කෝදුවෙන්.</li>
+      <li>උපරිම / අවම ලක්ෂ්‍යය, සමමිති අක්ෂය (x = h), අන්තඃඛණ්ඩ — ප්‍රස්තාරයෙන් කියවා ලියන්න.</li>
+    </ul>
+
+    <h3>🎲 කුලක / සම්භාවිතාව / සංඛ්‍යාත</h3>
+    <ul class="points">
+      <li>වෙන් රූපය: <b>මැද (ඡේදනය) සිට පිටතට</b> අගයන් පුරවන්න.</li>
+      <li>සම්භාවිතා රුක් සටහන: ශාඛා දිගේ <b>ගුණ කරන්න</b>, ශාඛා අතර <b>එකතු කරන්න</b>; ශාඛා එකතුව = 1 ද පරීක්ෂා කරන්න.</li>
+      <li>මධ්‍යන්‍යය: වගුවේ එක් එක් තීරු (මධ්‍ය අගය, f × x) ලියන්න; ∑f සහ ∑fx පෙන්වන්න.</li>
+    </ul>
+
+    <h3>📐 ත්‍රිකෝණමිතිය</h3>
+    <ul class="points">
+      <li>රූපය අඳින්න / ලේබල් කරන්න: ප්‍රතිමුඛ, යාබද, කර්ණය.</li>
+      <li>tan = <span class="fr"><span>ප්‍රතිමුඛ</span><span>යාබද</span></span> වගේ අනුපාතය ලියා, වගුවෙන් ලබාගත් අගය (tan 35° = …) ලියා ගණනය කරන්න.</li>
+      <li>උන්නතාංශ / අවරෝහණ කෝණය තිරස් රේඛාව සමඟ මනින බව මතක තබාගන්න.</li>
+    </ul>
+    <button data-done="mat-how-5" data-xp="15">ප්‍රශ්න වර්ග තේරුණා</button>
+  </section>
+
+  <section class="card lesson" id="s6">
+    <h2>🚫 සම්මත වැරදි</h2>
+    <ul class="points">
+      <li>බලයේ පාද හා ඝාතකය පටලවා ගැනීම (a² ≠ 2a).</li>
+      <li>අසමානතාවේ සෘණ සංඛ්‍යාවකින් ගුණ / බෙදූ විට ලකුණ ආපසු හැරවීම අමතක කිරීම.</li>
+      <li>ඒකක නොලිවීම. ආසන්න කිරීමේදී කලින් වටකිරීම.</li>
+      <li>මාස → වසර (මාස 6 = <span class="fr"><span>1</span><span>2</span></span>), කාර්තුව = <span class="fr"><span>1</span><span>4</span></span> වසරක්.</li>
+      <li>අසමාන පන්ති පළල සහිත සංඛ්‍යාත ව්‍යාප්ති ප්‍රස්තාරයේ සංඛ්‍යාතය පළලෙන් බෙදීම අමතක කිරීම (2023 note).</li>
+      <li>ලඝු වගුවේ සෘණ ලක්ෂණය (‾1 ආදිය) අමතක කිරීම.</li>
+    </ul>
+    <button data-done="mat-how-6" data-xp="10">මතකයි</button>
+  </section>
+</main>
+<footer class="foot">ජය වේවා! 🌸</footer>
+<script src="../../assets/game.js"></script>
+<script src="../../assets/tabs.js"></script>
+</body>
+</html>

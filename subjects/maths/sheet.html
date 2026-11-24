@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="si">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ගණිතය — අවසාන රාත්‍රී සටහන</title>
+<link rel="stylesheet" href="../../assets/game.css">
+<style>
+  .fr { display: inline-block; vertical-align: middle; text-align: center; margin: 0 2px; line-height: 1.2; font-size: .95em; }
+  .fr > span { display: block; padding: 0 3px; }
+  .fr > span:first-child { border-bottom: 1.5px solid currentColor; }
+  .fig { border: 2.5px dashed var(--line); border-radius: 12px; padding: 8px 12px; margin: 10px 0; background: #FFF9E3; color: #1E2350; font-size: .92rem; }
+  .fig b { display: block; margin-bottom: 2px; }
+  .est { border: 2.5px solid var(--line); border-radius: 12px; padding: 8px 12px; margin: 0 0 10px; background: #FFE2E3; color: #1E2350; font-weight: 700; }
+  .sub { margin: 6px 0; }
+  .work { font-family: var(--f-body); background: var(--paper); border: 2px solid var(--line); border-radius: 12px; padding: 10px 14px; margin: 10px 0; line-height: 1.9; }
+  .work .ln { display: block; }
+  .work .ln small { color: var(--ink-soft); }
+  .work .ans { font-weight: 700; text-decoration: underline; }
+  .mm { background: #DDF7EC; color: #1E2350; border: 2px solid var(--line); border-radius: 8px; padding: 0 8px; font-weight: 700; font-size: .85rem; }
+  .formula-box { border: 2.5px solid var(--line); border-radius: 12px; padding: 10px 14px; margin: 10px 0; background: var(--paper); }
+  .formula-box b { display: block; font-family: var(--f-head); }
+
+  .sheet { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+  .sheet .card { padding: 14px 16px; margin: 0; font-size: .93rem; line-height: 1.8; }
+  .sheet h3 { font-size: 1.05rem; margin-bottom: .3em; color: var(--accent); }
+  .sheet ul { margin: 0; padding-left: 1.1em; }
+  @media print { .sheet { grid-template-columns: 1fr 1fr; gap: 6px; } .sheet .card { font-size: 9pt; padding: 6px 8px; border-width: 1px; line-height: 1.55; } .page-head p, .callout { display: none; } }
+</style>
+</head>
+<body data-root="../../" data-subject="maths" data-page="sheet">
+<main class="wrap">
+  <div class="page-head">
+    <div class="kicker">මට්ටම 7 · දෙසැම්බර් 13 රෑ</div>
+    <h1>⚡ අවසාන රාත්‍රී සටහන</h1>
+    <p>විභාගයට කලින් රෑ <b>මෙය පමණක්</b> කියවන්න — අලුත් පාඩම් කරන්න එපා. පැය 1යි. හෙට (දෙසැම්බර් 14): I පත්‍රය 08:30–10:30; II පත්‍රය 13:00–16:10. වේලාසනින් නිදාගන්න 😴</p>
+    <p class="no-print"><button class="btn" onclick="window.print()">🖨️ Print කරන්න</button></p>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+
+  <div class="sheet">
+    <div class="card"><h3>📋 පත්‍ර</h3><ul><li><b>I (100, පැය 2):</b> A 25 × 2 = 50 + B 5 × 10 = 50 — <b>සියල්ල අනිවාර්ය</b></li><li><b>II (100, පැය 3 + විනාඩි 10):</b> A න් 5 (6න්) + B න් 5 (6න්), 10 බැගින්</li><li>5 + 5ට වඩා ලිව්වොත් ලකුණු නැහැ</li></ul></div>
+    <div class="card"><h3>⏰ විනාඩි</h3><ul><li><b>I (120):</b> A 45 · B 60 · පරීක්ෂාව 15</li><li><b>II (190):</b> කියවීම 10 · ප්‍රශ්න 10 × 16 = 160 · පරීක්ෂාව 20</li><li>A කොටසේ 2 විනාඩියට වඩා හිරවුණොත් ✱ දමා ඉදිරියට</li></ul></div>
+    <div class="card"><h3>🔥 වැඩිපුරම එන මාතෘකා (2018–25)</h3><ul><li>ප්‍රතිශත / බදු / පොලී / කොටස් — 27 ප්‍රශ්න</li><li>සමීකරණ — 25</li><li>පෘෂ්ඨ වර්ගඵලය හා පරිමාව — 22</li><li>වෘත්තයක ජ්‍යා හා කෝණ — 22</li><li>සෑම වසරකම: සම්භාවිතාව, කුලක, ශ්‍රේඪි (2 බැගින්), නිර්මාණ</li></ul></div>
+    <div class="card"><h3>💰 ප්‍රතිශත / පොලී</h3><ul><li>% = <span class="fr"><span>කොටස</span><span>සම්පූර්ණය</span></span> × 100</li><li>සරල පොලිය I = <span class="fr"><span>P × R × N</span><span>100</span></span> (N = <b>වසර</b>; මාස 6 = <span class="fr"><span>1</span><span>2</span></span>, කාර්තුව = <span class="fr"><span>1</span><span>4</span></span>)</li><li>වැල් පොලිය A = P(1 + <span class="fr"><span>r</span><span>100</span></span>)<sup>n</sup> <small>(පෙළපොතින් තහවුරු කරන්න)</small></li><li>වරිපනම් = වාර්ෂික තක්සේරු × %; කාර්තුවකට = ÷ 4</li><li>කොටස් ලාභාංශය = කොටස් ගණන × කොටසකට ලාභාංශය</li><li>බද්දට පසු = × <span class="fr"><span>100 + %</span><span>100</span></span></li></ul></div>
+    <div class="card"><h3>⚖️ සමීකරණ / සාධක</h3><ul><li>(a + b)² = a² + 2ab + b²; (a − b)² = a² − 2ab + b²</li><li>a² − b² = (a + b)(a − b)</li><li>x² + (p + q)x + pq = (x + p)(x + q)</li><li>ax² + bx + c = 0 → x = <span class="fr"><span>−b ± √(b² − 4ac)</span><span>2a</span></span></li><li>සමගාමී: ඉවත් කිරීම / ආදේශය; අගය ආදේශයෙන් පරීක්ෂා</li><li>අසමානතා: සෘණයෙන් ගුණ/බෙදූ විට ලකුණ ආපසු</li></ul></div>
+    <div class="card"><h3>🟦 වර්ගඵල / පරිමාව</h3><ul><li>ත්‍රිකෝණය <span class="fr"><span>1</span><span>2</span></span>bh · ත්‍රපීසියම <span class="fr"><span>1</span><span>2</span></span>(a + b)h · වෘත්තය πr²</li><li>වෘත්ත පරිධිය 2πr · චාපය <span class="fr"><span>θ</span><span>360</span></span> × 2πr · ඛණ්ඩය <span class="fr"><span>θ</span><span>360</span></span> × πr²</li><li>සිලින්ඩරය: V = πr²h · වක්‍ර 2πrh · මුළු 2πr(r + h)</li><li>කේතුව: V = <span class="fr"><span>1</span><span>3</span></span>πr²h · වක්‍ර πrl (l² = r² + h²)</li><li>ගෝලය: V = <span class="fr"><span>4</span><span>3</span></span>πr³ · පෘෂ්ඨය 4πr²</li><li>පිරමිඩය / කේතුව <span class="fr"><span>1</span><span>3</span></span> × පතුල × උස · ප්‍රිස්මය = හරස්කඩ × දිග</li><li>π = <span class="fr"><span>22</span><span>7</span></span> (ප්‍රශ්නයේ උපදෙස් බලන්න)</li></ul></div>
+    <div class="card"><h3>⭕ වෘත්ත / ජ්‍යාමිතිය</h3><ul><li>කේන්ද්‍ර කෝණය = පරිධි කෝණයේ 2 ගුණයක්</li><li>එකම ඛණ්ඩයේ කෝණ සමාන; අර්ධ වෘත්තයේ කෝණය = 90°</li><li>වෘත්ත චතුරස්‍රයේ සම්මුඛ කෝණ ඓක්‍යය 180°</li><li>ස්පර්ශකය ⊥ අරය; බාහිර ලක්ෂ්‍යයෙන් ස්පර්ශක දෙක සමාන</li><li>කේන්ද්‍රයෙන් ජ්‍යාවට ලම්බය ජ්‍යාව සමච්ඡේදනය කරයි</li><li>ත්‍රිකෝණ කෝණ ඓක්‍යය 180°; බාහිර කෝණය = අභ්‍යන්තර සම්මුඛ කෝණ දෙකේ ඓක්‍යය</li><li>මධ්‍ය ලක්ෂ්‍ය ප්‍රමේයය: යා කරන රේඛාව ∥ තෙවන පාදය, දිගෙන් අඩක්</li></ul></div>
+    <div class="card"><h3>📐 ත්‍රිකෝණමිතිය / පයිතගරස්</h3><ul><li>a² + b² = c² (c කර්ණය) · 3-4-5, 5-12-13</li><li>sin = <span class="fr"><span>ප්‍රතිමුඛ</span><span>කර්ණය</span></span> · cos = <span class="fr"><span>යාබද</span><span>කර්ණය</span></span> · tan = <span class="fr"><span>ප්‍රතිමුඛ</span><span>යාබද</span></span></li><li>tan 45° = 1 · sin 30° = <span class="fr"><span>1</span><span>2</span></span> · cos 60° = <span class="fr"><span>1</span><span>2</span></span></li><li>උන්නතාංශ / අවරෝහණ කෝණ — තිරස් රේඛාව සමඟ</li><li>වගුවෙන් tan / sin / cos අගයන් ගන්න</li></ul></div>
+    <div class="card"><h3>🎲 කුලක / සම්භාවිතාව / සංඛ්‍යාත</h3><ul><li>n(A ∪ B) = n(A) + n(B) − n(A ∩ B)</li><li>වෙන් රූපය: මැද සිට පිටතට පුරවන්න</li><li>P(A) = <span class="fr"><span>ඇති ප්‍රතිඵල</span><span>මුළු ප්‍රතිඵල</span></span>; P(A නොවීම) = 1 − P(A)</li><li>රුක් සටහන: ශාඛා දිගේ ×, ශාඛා අතර +</li><li>මධ්‍යන්‍යය = <span class="fr"><span>∑fx</span><span>∑f</span></span>; මධ්‍ය අගය = <span class="fr"><span>පහළ + ඉහළ</span><span>2</span></span></li><li>වට ප්‍රස්තාරයේ කෝණය = <span class="fr"><span>දත්තය</span><span>මුළුව</span></span> × 360°</li></ul></div>
+    <div class="card"><h3>🔢 ශ්‍රේඪි / දර්ශක / ලඝුගණක</h3><ul><li>AP: T<sub>n</sub> = a + (n − 1)d · S<sub>n</sub> = <span class="fr"><span>n</span><span>2</span></span>[2a + (n − 1)d] = <span class="fr"><span>n</span><span>2</span></span>(a + l)</li><li>GP: T<sub>n</sub> = ar<sup>n−1</sup> · r = <span class="fr"><span>T₂</span><span>T₁</span></span> · S<sub>n</sub> = <span class="fr"><span>a(r<sup>n</sup> − 1)</span><span>r − 1</span></span></li><li>aᵐ × aⁿ = a<sup>m+n</sup> · aᵐ ÷ aⁿ = a<sup>m−n</sup> · (aᵐ)ⁿ = a<sup>mn</sup> · a⁰ = 1</li><li>log ab = log a + log b · log <span class="fr"><span>a</span><span>b</span></span> = log a − log b · log aⁿ = n log a</li><li>log<sub>a</sub> x = y ⇔ x = a<sup>y</sup></li></ul></div>
+    <div class="card"><h3>📈 ප්‍රස්තාර / ශීඝ්‍රතාව</h3><ul><li>රේඛාව: y = mx + c; m = <span class="fr"><span>y₂ − y₁</span><span>x₂ − x₁</span></span></li><li>වර්ගජ y = a(x − h)² + k: හැරුම (h, k); a &gt; 0 අවමය, a &lt; 0 උපරිමය; සමමිති අක්ෂය x = h</li><li>ශීඝ්‍රතාව = <span class="fr"><span>දුර</span><span>කාලය</span></span>; දුර–කාල ප්‍රස්තාරයේ ආනතිය = ශීඝ්‍රතාව</li><li>km/h → m/s: × <span class="fr"><span>5</span><span>18</span></span></li><li>ප්‍රතිලෝම සමානුපාතය: මිනිසුන් × දින = නියත</li></ul></div>
+    <div class="card"><h3>📏 නිර්මාණ</h3><ul><li>කවකටුව + කෝදුව පමණයි; <b>චාප මකන්න එපා</b></li><li>60°: A සිට චාපය, X කේන්ද්‍රයෙන් එම අරයෙන්ම</li><li>ලම්බ සමච්ඡේදකය: අරය <span class="fr"><span>1</span><span>2</span></span>ට වඩා වැඩි, දෙපැත්තෙන් චාප</li><li>පථ: ලක්ෂ්‍ය දෙකකට සමදුරින් = ලම්බ සමච්ඡේදකය</li></ul></div>
+    <div class="card"><h3>🚫 සම්මත වැරදි</h3><ul><li>ඒකක නැතිවීම (cm, cm², cm³, රු.)</li><li>බද්ද පමණක් ලිවීම (මුළු වටිනාකම අවශ්‍ය විට)</li><li>මාස → වසර බෙදීම අමතක</li><li>අසමානතාවේ ලකුණ</li><li>වර්ගජ පිළිතුරු දෙකෙන් එකක් පමණක් ලිවීම</li><li>කෝණ සොයා හේතුව නොලිවීම</li></ul></div>
+    <div class="card"><h3>🎒 හෙට ගෙනයන්න</h3><ul><li>ප්‍රවේශ පත්‍රය, හැඳුනුම්පත</li><li>පෑන් 2, පැන්සල, මකනය</li><li>කෝදුව, <b>කවකටුව, කෝණමානය</b></li><li>ඔරලෝසුව, වතුර බෝතලය</li><li>විභාග උපදෙස් පත්‍රිකාවේ අවසර ඇති උපකරණ පමණක් (ගණක යන්ත්‍ර සම්බන්ධ නීති තහවුරු කරන්න)</li></ul></div>
+  </div>
+  <div class="callout tip" style="margin-top:14px"><span class="ic">💡</span><div><p>රෑ 10ට පෙර නිදාගන්න. උදේ I පත්‍රයට පෙර සූත්‍ර නැවත බලන්න, ඉන්පසු පත්‍රය අතට ගත් පසු <b>ප්‍රශ්න සියල්ල කියවා පහසුම ඒවායින් පටන් ගන්න</b>.</p></div></div>
+  <p class="no-print"><button data-done="mat-sheet-read" data-xp="20">අද රෑ කියවා ඉවරයි</button></p>
+</main>
+<footer class="foot">ජය වේවා! 🌸</footer>
+<script src="../../assets/game.js"></script>
+<script src="../../assets/tabs.js"></script>
+</body>
+</html>

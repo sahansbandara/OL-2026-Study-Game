@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="si">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ගණිතය — ඉලක්ක ප්‍රශ්න</title>
+<link rel="stylesheet" href="../../assets/game.css">
+<style>
+  .fr { display: inline-block; vertical-align: middle; text-align: center; margin: 0 2px; line-height: 1.2; font-size: .95em; }
+  .fr > span { display: block; padding: 0 3px; }
+  .fr > span:first-child { border-bottom: 1.5px solid currentColor; }
+  .fig { border: 2.5px dashed var(--line); border-radius: 12px; padding: 8px 12px; margin: 10px 0; background: #FFF9E3; color: #1E2350; font-size: .92rem; }
+  .fig b { display: block; margin-bottom: 2px; }
+  .est { border: 2.5px solid var(--line); border-radius: 12px; padding: 8px 12px; margin: 0 0 10px; background: #FFE2E3; color: #1E2350; font-weight: 700; }
+  .sub { margin: 6px 0; }
+  .work { font-family: var(--f-body); background: var(--paper); border: 2px solid var(--line); border-radius: 12px; padding: 10px 14px; margin: 10px 0; line-height: 1.9; }
+  .work .ln { display: block; }
+  .work .ln small { color: var(--ink-soft); }
+  .work .ans { font-weight: 700; text-decoration: underline; }
+  .mm { background: #DDF7EC; color: #1E2350; border: 2px solid var(--line); border-radius: 8px; padding: 0 8px; font-weight: 700; font-size: .85rem; }
+  .formula-box { border: 2.5px solid var(--line); border-radius: 12px; padding: 10px 14px; margin: 10px 0; background: var(--paper); }
+  .formula-box b { display: block; font-family: var(--f-head); }
+
+  .tag { display: inline-block; border: 2px solid var(--line); border-radius: 8px; padding: 0 8px; font-size: .8rem; font-weight: 700; background: #FFF4CC; color: #1E2350; margin-left: 6px; }
+  .svgbox { text-align: center; margin: 10px 0; }
+  .svgbox svg { max-width: 100%; height: auto; }
+  .svgbox svg text { fill: #1E2350; font: 700 13px sans-serif; }
+</style>
+</head>
+<body data-root="../../" data-subject="maths" data-page="target">
+<main class="wrap-narrow">
+  <div class="page-head">
+    <div class="kicker">මට්ටම 6</div>
+    <h1>🎯 ඉලක්ක ප්‍රශ්න</h1>
+    <p>පසුගිය වසර 8ක ආවර්තන වගුව අනුව 2026 ට එන්න <b>ඉඩ වැඩි</b> මාතෘකා 8ක් ගැන මම හදපු ප්‍රශ්න. මුලින් ඔබම කරන්න, පසුව ආදර්ශ විසඳුම බලන්න.</p>
+    <div class="callout warn"><span class="ic">⚠️</span><div><p><b>ආදර්ශ / ඉලක්ක ප්‍රශ්න</b> — මේවා මෙහි සකස් කළ පුහුණු ප්‍රශ්න; නිල ප්‍රශ්න හෝ නිල පිළිතුරු නොවේ. 2026 ට මේවා එනවාය කියන සහතිකයක් නැහැ. ගණනය මම පරීක්ෂා කළත්, “වගුව (tables) අගය” වැනි දේ පෙළපොතින් තහවුරු කරන්න. රූප සටහන් <b>දළ සටහන් පමණයි</b> — පරිමාණයට නොවේ.</p></div></div>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+
+  <nav class="toc" aria-label="ප්‍රශ්න">
+    <a href="#t1">1 · පොලී / බදු / කොටස් 🔥</a>
+    <a href="#t2">2 · සමීකරණ 🔥</a>
+    <a href="#t3">3 · පෘෂ්ඨ වර්ගඵලය / පරිමාව 🔥</a>
+    <a href="#t4">4 · වෘත්ත ප්‍රමේය 🔥</a>
+    <a href="#t5">5 · කුලක / සම්භාවිතාව</a>
+    <a href="#t6">6 · ශ්‍රේඪි</a>
+    <a href="#t7">7 · ත්‍රිකෝණමිතිය</a>
+    <a href="#t8">8 · නිර්මාණ / පථ</a>
+  </nav>
+
+  <section class="card lesson" id="t1">
+    <h2>1 · පොලී / බදු / කොටස් <span class="hot">🔥</span><span class="tag">ආදර්ශ ප්‍රශ්නය · ලකුණු 10</span></h2>
+    <div class="q"><div class="stem">(i) රු. 200 000ක් වාර්ෂික 10% සරල පොලියට මාස 9කට තැන්පත් කළහොත් ලැබෙන පොලිය කීය ද?<br>
+    (ii) මාස 9කට පසු ලැබෙන මුළු මුදල කීය ද?<br>
+    (iii) නිවසක වාර්ෂික තක්සේරු වටිනාකම රු. 480 000ක් වන අතර වරිපනම් බද්ද 8%කි. කාර්තුවකට ගෙවිය යුතු වරිපනම් මුදල කීය ද?<br>
+    (iv) කොටසක් රු. 40 බැගින් කොටස් 500ක් මිලට ගත් අයෙකුට කොටසකට රු. 3ක ලාභාංශයක් ලැබේ. ඔහුගේ ආයෝජනයේ ලාභාංශ ප්‍රතිශතය කීය ද?</div>
+    <button class="btn alt small" data-reveal="mat-t-1">👀 ආදර්ශ විසඳුම බලන්න</button>
+    <div class="answer"><p><b>ආදර්ශ විසඳුම</b> (නිල නොවේ):</p>
+    <div class="work"><span class="ln">(i) I = 200 000 × <span class="fr"><span>10</span><span>100</span></span> × <span class="fr"><span>9</span><span>12</span></span> = <span class="ans">රු. 15 000</span></span>
+    <span class="ln">(ii) මුළු මුදල = 200 000 + 15 000 = <span class="ans">රු. 215 000</span></span>
+    <span class="ln">(iii) වාර්ෂික බද්ද = 480 000 × <span class="fr"><span>8</span><span>100</span></span> = රු. 38 400; කාර්තුවකට = 38 400 ÷ 4 = <span class="ans">රු. 9 600</span></span>
+    <span class="ln">(iv) ආයෝජනය = 500 × 40 = රු. 20 000; ලාභාංශය = 500 × 3 = රු. 1 500; ප්‍රතිශතය = <span class="fr"><span>1 500</span><span>20 000</span></span> × 100 = <span class="ans">7.5%</span></span></div>
+    <p class="muted">⚠️ මාස 9 = <span class="fr"><span>9</span><span>12</span></span> වසරක් (වසර 9 නොවේ). “ලකුණු 10” ලෙස උප කොටස් බෙදුම මෙහි නිල නොවේ.</p></div></div>
+    <button data-done="mat-tar-1" data-xp="15">මේක ඉවරයි</button>
+  </section>
+
+  <section class="card lesson" id="t2">
+    <h2>2 · සමීකරණ <span class="hot">🔥</span><span class="tag">ආදර්ශ ප්‍රශ්නය · ලකුණු 10</span></h2>
+    <div class="q"><div class="stem">(i) කෝපි කෝප්ප 3ක් හා රොටි 2ක් රු. 190යි. කෝපි කෝප්පයක් හා රොටි 4ක් රු. 170යි. කෝපි කෝප්පයක හා රොටියක මිල සොයන්න.<br>
+    (ii) සෘජුකෝණාස්‍රාකාර බිම් කොටසක දිග, පළලට වඩා 3 m වැඩිය. වර්ගඵලය 40 m² නම් පළල x m ලෙස ගෙන, x² + 3x − 40 = 0 බව පෙන්වා, පළල හා දිග සොයන්න.</div>
+    <button class="btn alt small" data-reveal="mat-t-2">👀 ආදර්ශ විසඳුම බලන්න</button>
+    <div class="answer"><p><b>ආදර්ශ විසඳුම</b> (නිල නොවේ):</p>
+    <div class="work"><span class="ln">(i) කෝපි = c, රොටි = r ගනිමු. 3c + 2r = 190 …①; c + 4r = 170 …②</span>
+    <span class="ln">② න් c = 170 − 4r. ① හි ආදේශ: 3(170 − 4r) + 2r = 190 → 510 − 12r + 2r = 190 → 10r = 320 → <span class="ans">r = රු. 32</span></span>
+    <span class="ln">c = 170 − 4(32) = 170 − 128 = <span class="ans">රු. 42</span></span>
+    <span class="ln">පරීක්ෂාව: 3(42) + 2(32) = 126 + 64 = 190 ✓; 42 + 128 = 170 ✓</span></div>
+    <div class="work"><span class="ln">(ii) පළල = x, දිග = x + 3. වර්ගඵලය: x(x + 3) = 40 → x² + 3x − 40 = 0</span>
+    <span class="ln">සාධක: (x + 8)(x − 5) = 0 → x = −8 හෝ x = 5</span>
+    <span class="ln">පළල සෘණ විය නොහැකි නිසා <span class="ans">පළල = 5 m, දිග = 8 m</span> (5 × 8 = 40 ✓)</span></div></div></div>
+    <button data-done="mat-tar-2" data-xp="15">මේක ඉවරයි</button>
+  </section>
+
+  <section class="card lesson" id="t3">
+    <h2>3 · පෘෂ්ඨ වර්ගඵලය හා පරිමාව <span class="hot">🔥</span><span class="tag">ආදර්ශ ප්‍රශ්නය · ලකුණු 10</span></h2>
+    <div class="q"><div class="stem">(π = <span class="fr"><span>22</span><span>7</span></span> ගන්න.) අරය 7 cm හා උස 10 cm වන ඝන සිලින්ඩරයක් ඇත.<br>
+    (i) පරිමාව. (ii) වක්‍ර පෘෂ්ඨ වර්ගඵලය. (iii) මුළු පෘෂ්ඨ වර්ගඵලය.<br>
+    (iv) අරය 7 cm හා සිරස් උස 24 cm වන කේතුවක් ඇත: ආනත උස (l) සොයා, එහි පරිමාව හා වක්‍ර පෘෂ්ඨ වර්ගඵලය සොයන්න.</div>
+    <button class="btn alt small" data-reveal="mat-t-3">👀 ආදර්ශ විසඳුම බලන්න</button>
+    <div class="answer"><p><b>ආදර්ශ විසඳුම</b> (නිල නොවේ):</p>
+    <div class="work"><span class="ln">(i) පරිමාව = πr²h = <span class="fr"><span>22</span><span>7</span></span> × 7 × 7 × 10 = <span class="ans">1540 cm³</span></span>
+    <span class="ln">(ii) වක්‍ර පෘෂ්ඨය = 2πrh = 2 × <span class="fr"><span>22</span><span>7</span></span> × 7 × 10 = <span class="ans">440 cm²</span></span>
+    <span class="ln">(iii) අග දෙක = 2πr² = 2 × <span class="fr"><span>22</span><span>7</span></span> × 7 × 7 = 308; මුළු = 440 + 308 = <span class="ans">748 cm²</span></span>
+    <span class="ln">(iv) l² = r² + h² = 49 + 576 = 625 → l = 25 cm</span>
+    <span class="ln">පරිමාව = <span class="fr"><span>1</span><span>3</span></span>πr²h = <span class="fr"><span>1</span><span>3</span></span> × <span class="fr"><span>22</span><span>7</span></span> × 49 × 24 = <span class="ans">1232 cm³</span></span>
+    <span class="ln">වක්‍ර පෘෂ්ඨය = πrl = <span class="fr"><span>22</span><span>7</span></span> × 7 × 25 = <span class="ans">550 cm²</span></span></div>
+    <p class="muted">හැමවිටම: පරිමාව → cm³, වර්ගඵලය → cm². සූත්‍ර නමට ඇති සූත්‍ර පත්‍රිකාව <a href="sheet.html">අවසාන රාත්‍රී සටහනේ</a> තියෙනවා.</p></div></div>
+    <button data-done="mat-tar-3" data-xp="15">මේක ඉවරයි</button>
+  </section>
+
+  <section class="card lesson" id="t4">
+    <h2>4 · වෘත්තයක ජ්‍යා හා කෝණ <span class="hot">🔥</span><span class="tag">ආදර්ශ ප්‍රශ්නය · ලකුණු 10</span></h2>
+    <div class="q"><div class="stem">O කේන්ද්‍රය වූ වෘත්තය මත A, B, C, D ලක්ෂ්‍ය පිළිවෙළින් ඇත. ∠AOC = 140° වන අතර A හා C අතර කුඩා චාපය D හරහා ගමන් කරයි. (රූපය දළ සටහනකි — පරිමාණයට නොවේ.)
+    <div class="svgbox"><svg viewBox="0 0 300 210" width="300" role="img" aria-label="කේන්ද්‍රය O වූ වෘත්තයක A, B, C, D ලක්ෂ්‍ය හා ජ්‍යා">
+      <circle cx="150" cy="100" r="80" fill="none" stroke="#1E2350" stroke-width="2"/>
+      <polygon points="74.8,127.4 150,20 225.2,127.4 150,180" fill="none" stroke="#1E2350" stroke-width="2"/>
+      <line x1="150" y1="100" x2="74.8" y2="127.4" stroke="#E5484D" stroke-width="2"/>
+      <line x1="150" y1="100" x2="225.2" y2="127.4" stroke="#E5484D" stroke-width="2"/>
+      <circle cx="150" cy="100" r="2.5" fill="#1E2350"/>
+      <text x="153" y="95">O</text><text x="58" y="135">A</text><text x="146" y="14">B</text><text x="230" y="135">C</text><text x="146" y="198">D</text>
+      <text x="108" y="118" style="fill:#E5484D">140°</text>
+    </svg></div>
+    (i) ∠ABC. (ii) ∠ADC. (iii) OA = OC නිසා ∠OAC.</div>
+    <button class="btn alt small" data-reveal="mat-t-4">👀 ආදර්ශ විසඳුම බලන්න</button>
+    <div class="answer"><p><b>ආදර්ශ විසඳුම</b> (නිල නොවේ):</p>
+    <div class="work"><span class="ln">(i) ∠ABC = <span class="fr"><span>1</span><span>2</span></span> ∠AOC <small>(කේන්ද්‍රයේ කෝණය = එම චාපයෙන් පරිධියේ කෝණයේ 2 ගුණයක්)</small> = <span class="fr"><span>1</span><span>2</span></span> × 140° = <span class="ans">70°</span></span>
+    <span class="ln">(ii) ABCD වෘත්ත චතුරස්‍රයකි: ∠ABC + ∠ADC = 180° <small>(සම්මුඛ කෝණ)</small> → ∠ADC = 180° − 70° = <span class="ans">110°</span></span>
+    <span class="ln">(iii) OA = OC (අරය) → ∠OAC = ∠OCA <small>(සමද්විපාද ත්‍රිකෝණය)</small>; ∠OAC = <span class="fr"><span>180° − 140°</span><span>2</span></span> = <span class="ans">20°</span></span></div>
+    <p class="muted">හැම පියවරකටම <b>හේතුව</b> ලියන්න (බලන්න <a href="howto.html">පිළිතුරු ලියන හැටි</a>).</p></div></div>
+    <button data-done="mat-tar-4" data-xp="15">මේක ඉවරයි</button>
+  </section>
+
+  <section class="card lesson" id="t5">
+    <h2>5 · කුලක හා සම්භාවිතාව<span class="tag">ආදර්ශ ප්‍රශ්නය · ලකුණු 10</span></h2>
+    <div class="q"><div class="stem">(i) පන්තියේ ශිෂ්‍ය 40කි. 25ක් ක්‍රිකට් ක්‍රීඩා කරති (A). 18ක් වොලිබෝල් ක්‍රීඩා කරති (B). 8ක් දෙකම ක්‍රීඩා කරති. වෙන් රූපයක් අඳින්න; ක්‍රිකට් පමණක් ක්‍රීඩා කරන සංඛ්‍යාව හා කිසිවක් ක්‍රීඩා නොකරන සංඛ්‍යාව සොයන්න.<br>
+    (ii) පසුම්බියක රතු බෝල 5ක්, නිල් බෝල 3ක්, කොළ බෝල 2ක් ඇත. නැවත නොදමා බෝල 2ක් අහඹු ලෙස ගනී. (a) රතු දෙකම ගැනීමේ සම්භාවිතාව. (b) අවම වශයෙන් එක කොළ බෝලයක් ගැනීමේ සම්භාවිතාව.</div>
+    <button class="btn alt small" data-reveal="mat-t-5">👀 ආදර්ශ විසඳුම බලන්න</button>
+    <div class="answer"><p><b>ආදර්ශ විසඳුම</b> (නිල නොවේ):</p>
+    <div class="work"><span class="ln">(i) මැද (A ∩ B) = 8; ක්‍රිකට් පමණක් = 25 − 8 = <span class="ans">17</span>; වොලිබෝල් පමණක් = 18 − 8 = 10</span>
+    <span class="ln">n(A ∪ B) = 25 + 18 − 8 = 35; කිසිවක් නොකරන = 40 − 35 = <span class="ans">5</span> (පරීක්ෂාව: 17 + 8 + 10 + 5 = 40 ✓)</span>
+    <span class="ln">(ii) (a) P(රතු, රතු) = <span class="fr"><span>5</span><span>10</span></span> × <span class="fr"><span>4</span><span>9</span></span> = <span class="fr"><span>20</span><span>90</span></span> = <span class="ans"><span class="fr"><span>2</span><span>9</span></span></span></span>
+    <span class="ln">(b) P(කොළ නැත) = <span class="fr"><span>8</span><span>10</span></span> × <span class="fr"><span>7</span><span>9</span></span> = <span class="fr"><span>56</span><span>90</span></span>; P(අවම වශයෙන් එක කොළ) = 1 − <span class="fr"><span>56</span><span>90</span></span> = <span class="fr"><span>34</span><span>90</span></span> = <span class="ans"><span class="fr"><span>17</span><span>45</span></span></span></span></div></div></div>
+    <button data-done="mat-tar-5" data-xp="15">මේක ඉවරයි</button>
+  </section>
+
+  <section class="card lesson" id="t6">
+    <h2>6 · ශ්‍රේඪි<span class="tag">ආදර්ශ ප්‍රශ්නය · ලකුණු 10</span></h2>
+    <div class="q"><div class="stem">(i) සමාන්තර ශ්‍රේඪියක 3 වන පදය 11ක් ද 7 වන පදය 23ක් ද වේ. පළමු පදය හා පොදු අන්තරය සොයා, 10 වන පදය හා පළමු පද 10හි ඓක්‍යය සොයන්න.<br>
+    (ii) ගුණෝත්තර ශ්‍රේඪියක පළමු පද තුන 2, 6, 18 වේ. පොදු අනුපාතය, 5 වන පදය හා පළමු පද 4හි ඓක්‍යය සොයන්න.</div>
+    <button class="btn alt small" data-reveal="mat-t-6">👀 ආදර්ශ විසඳුම බලන්න</button>
+    <div class="answer"><p><b>ආදර්ශ විසඳුම</b> (නිල නොවේ):</p>
+    <div class="work"><span class="ln">(i) T<sub>n</sub> = a + (n − 1)d: a + 2d = 11 …①; a + 6d = 23 …②</span>
+    <span class="ln">② − ①: 4d = 12 → <span class="ans">d = 3</span>; a = 11 − 6 = <span class="ans">5</span></span>
+    <span class="ln">T<sub>10</sub> = 5 + 9 × 3 = <span class="ans">32</span>; S<sub>10</sub> = <span class="fr"><span>10</span><span>2</span></span>(5 + 32) = 5 × 37 = <span class="ans">185</span></span>
+    <span class="ln">(ii) r = <span class="fr"><span>6</span><span>2</span></span> = <span class="ans">3</span>; T<sub>5</sub> = ar⁴ = 2 × 3⁴ = 2 × 81 = <span class="ans">162</span></span>
+    <span class="ln">S<sub>4</sub> = <span class="fr"><span>a(r⁴ − 1)</span><span>r − 1</span></span> = <span class="fr"><span>2(81 − 1)</span><span>2</span></span> = <span class="ans">80</span> (පරීක්ෂාව: 2 + 6 + 18 + 54 = 80 ✓)</span></div></div></div>
+    <button data-done="mat-tar-6" data-xp="15">මේක ඉවරයි</button>
+  </section>
+
+  <section class="card lesson" id="t7">
+    <h2>7 · ත්‍රිකෝණමිතිය<span class="tag">ආදර්ශ ප්‍රශ්නය · ලකුණු 10</span></h2>
+    <div class="q"><div class="stem">(i) PQR ත්‍රිකෝණයේ Q = 90°, PQ = 12 cm, QR = 5 cm. PR සොයා, sin P, cos P, tan P ලියන්න.<br>
+    (ii) පොළොවේ ලක්ෂ්‍යයක සිට ගසක පාමුලට දුර 20 m වන අතර ගසේ මුදුනට උන්නතාංශ කෝණය 35° යි. වගුවෙන් tan 35° = 0.7002 ගෙන ගසේ උස (ඇස් මට්ටම නොසලකා) සොයන්න.</div>
+    <button class="btn alt small" data-reveal="mat-t-7">👀 ආදර්ශ විසඳුම බලන්න</button>
+    <div class="answer"><p><b>ආදර්ශ විසඳුම</b> (නිල නොවේ):</p>
+    <div class="work"><span class="ln">(i) පයිතගරස්: PR² = PQ² + QR² = 144 + 25 = 169 → <span class="ans">PR = 13 cm</span></span>
+    <span class="ln">P ට ප්‍රතිමුඛ පාදය = QR = 5; යාබද = PQ = 12</span>
+    <span class="ln">sin P = <span class="fr"><span>5</span><span>13</span></span>; cos P = <span class="fr"><span>12</span><span>13</span></span>; tan P = <span class="fr"><span>5</span><span>12</span></span></span>
+    <span class="ln">(ii) tan 35° = <span class="fr"><span>උස</span><span>20</span></span> → උස = 20 × 0.7002 = 14.004 ≈ <span class="ans">14.0 m</span></span></div>
+    <p class="muted">⚠️ tan 35° = 0.7002 යනු 4 ස්ථාන වගුවේ සාමාන්‍ය අගයයි — <b>පෙළපොතින් තහවුරු කරන්න</b>; විභාගයේදී ලබාදෙන / භාවිතා කරන වගුවෙන් ගන්න.</p></div></div>
+    <button data-done="mat-tar-7" data-xp="15">මේක ඉවරයි</button>
+  </section>
+
+  <section class="card lesson" id="t8">
+    <h2>8 · නිර්මාණ හා පථ<span class="tag">ආදර්ශ ප්‍රශ්නය · ලකුණු 10</span></h2>
+    <div class="q"><div class="stem">කවකටුව හා කෝදුව පමණක් භාවිතයෙන්, නිර්මාණ රේඛා පෙනෙන්නට තබා:<br>
+    (i) AB = 6 cm, ∠BAC = 60°, AC = 5 cm වන ABC ත්‍රිකෝණය නිර්මාණය කරන්න.<br>
+    (ii) BC හි ලම්බ සමච්ඡේදකය නිර්මාණය කරන්න; එය AB හමුවන ලක්ෂ්‍යය P ලෙස නම් කර, AP මැන ලියන්න.</div>
+    <button class="btn alt small" data-reveal="mat-t-8">👀 ආදර්ශ විසඳුම බලන්න</button>
+    <div class="answer"><p><b>ආදර්ශ පියවර</b> (නිල නොවේ — රූපය ඔබම කවකටුවෙන් අඳින්න):</p>
+    <ol>
+      <li>AB = 6 cm රේඛාව අඳින්න.</li>
+      <li>A කේන්ද්‍රයෙන් ඕනෑම අරයකින් AB කපන චාපයක් අඳින්න (ලක්ෂ්‍යය X). X කේන්ද්‍රයෙන් <b>එම අරයෙන්ම</b> පළමු චාපය කපන චාපයක් අඳින්න (ලක්ෂ්‍යය Y). AY රේඛාව දික් කරන්න → ∠BAY = 60°.</li>
+      <li>AY මත A සිට 5 cm දුරින් C ලකුණු කරන්න. B, C යා කරන්න.</li>
+      <li>B කේන්ද්‍රයෙන් BC හි භාගයට වඩා විශාල අරයක් ගෙන චාප දෙකක් BC දෙපැත්තේ අඳින්න; C කේන්ද්‍රයෙන් <b>එම අරයෙන්ම</b> චාප දෙක කපන්න. කැපුම් ලක්ෂ්‍ය දෙක යා කරන රේඛාව = BC හි ලම්බ සමච්ඡේදකය; එය AB හමුවන ලක්ෂ්‍යය P.</li>
+      <li>AP මැන ලියන්න. <b>ඔබේ මැනුම</b> ≈ 1.5–1.6 cm විය යුතුයි. (මෙය ගණනයෙන් සත්‍යාපනය: cos 60° = <span class="fr"><span>1</span><span>2</span></span> යොදා කෝසයින් නීතියෙන් AP = <span class="fr"><span>11</span><span>7</span></span> ≈ 1.57 cm — මෙම පරීක්ෂාව ගණිතමය තහවුරු කිරීමකි, විභාගයේ නොඅවශ්‍යයි.)</li>
+    </ol>
+    <p class="muted">නිර්මාණ චාප නොමකා තබන්න. P ලක්ෂ්‍යය BC දෙකෙන් සමදුරින් පිහිටන නිසා PB = PC (පථය: ලක්ෂ්‍ය දෙකකට සමදුරින් යන ලක්ෂ්‍යවල පථය = ලම්බ සමච්ඡේදකය).</p></div></div>
+    <button data-done="mat-tar-8" data-xp="15">මේක ඉවරයි</button>
+  </section>
+</main>
+<footer class="foot">ජය වේවා! 🌸</footer>
+<script src="../../assets/game.js"></script>
+<script src="../../assets/tabs.js"></script>
+</body>
+</html>
